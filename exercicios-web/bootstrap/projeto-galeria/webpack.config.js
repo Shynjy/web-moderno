@@ -28,10 +28,12 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({ filename: 'estilo.css' }),
-        new CopyWebpackPlugin([
-            { context: 'src/', from: '**/*.html' },
-            { context: 'src/', from: 'imgs/**/*' }
-        ])
+        new CopyWebpackPlugin({
+            patterns: [
+                { context: 'src/', from: 'imgs/**/*' },
+                { context: 'src/', from: '**/*.html' },
+            ],
+        })
     ],
     module: {
         rules: [{
